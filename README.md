@@ -1,73 +1,52 @@
-# Getting Started with Create React App
+# Personal Health Record (PHR) App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+The Personal Health Record (PHR) App is a web-based application designed to help individuals keep track of their medical records, medications, lab results, and doctor visits in one convenient location. Built with React, Node.js, and MongoDB, this project aims to simplify the management of health information for users.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+### Prerequisites
+- Node.js
+- MongoDB
+- npm
 
-### `npm start`
+### Installation
+1. Clone the repository:
+git clone https://github.com/periGH/phr-app.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Navigate to the project directory:
+cd phr-app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Install dependencies:
+npm install 
 
-### `npm test`
+### Running the Application
+1. Start the backend server:
+npm run server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The server runs on `http://localhost:3001` and connects to MongoDB for data storage.
 
-### `npm run build`
+2. In a separate terminal, start the React development server:
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application will be available at `http://localhost:3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
+- **User Authentication**: Secure login and registration system.
+- **Health Records Management**: Users can add, view, and manage their medical records.
+- **Medication Tracking**: Keep track of medications, dosages, and schedules.
+- **Lab Results**: Upload and access lab results.
+- **Doctor Visits**: Record details of past and upcoming doctor appointments.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## MongoDB Connection Setup
+Follow these steps to connect the application backend to MongoDB:
 
-### `npm run eject`
+- **Create a MongoDB Atlas Account**: Sign up and create a free tier cluster.
+- **Configure Database Access**: Add a new database user with read and write privileges.
+- **Whitelist Your IP Address**: Allow access from your IP or anywhere for development.
+- **Connect Your Application**: Use the connection string provided by Atlas in your `.env` file:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MONGO_URI=mongodb+srv://yourUser:yourPassword@yourClusterURL/yourDBname
 
 ### MongoDB Connection Setup ### 
 - This application uses MongoDB for data storage, leveraging MongoDB Atlas for a cloud-based solution. To connect the application backend to MongoDB, follow these steps:
