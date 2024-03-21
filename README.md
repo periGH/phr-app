@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### MongoDB Connection Setup ### 
+- This application uses MongoDB for data storage, leveraging MongoDB Atlas for a cloud-based solution. To connect the application backend to MongoDB, follow these steps:
+
+- Create a MongoDB Atlas Account: Sign up for MongoDB Atlas at https://www.mongodb.com/cloud/atlas and create a cluster. For development purposes, the free tier (M0) cluster is sufficient.
+
+- Configure Database Access: In the MongoDB Atlas dashboard, navigate to the "Database Access" section to add a new database user with read and write privileges.
+
+- Whitelist Your IP Address: For security, MongoDB Atlas requires you to whitelist IP addresses that can access your database. You can add your current IP address or allow access from anywhere for development purposes in the "Network Access" section.
+
+- Connect Your Application: Go to your cluster's "Connect" section, select "Connect your application," and copy the provided connection string.
+
+- Environment Variable: Store the connection string in an environment variable named MONGO_URI in a .env file at the root of your project. Replace <password> with the password of the database user you created, and <dbname> with the name of your database. It should look something like this:
+
+MONGO_URI=mongodb+srv://yourUser:yourPassword@yourClusterURL/yourDBname
+
+- Server Configuration: Ensure your backend server uses mongoose or a similar MongoDB driver to connect to the database using the MONGO_URI environment variable. You may need to install necessary packages (e.g., npm install mongoose dotenv).
+
+- Start Your Server: Run your server (e.g., with npm run server). If everything is configured correctly, you should see a "Connected to MongoDB" message in your server logs, indicating a successful connection.
