@@ -6,7 +6,7 @@ const DoctorVisitList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/doctorVisits`)
+    fetch(`http://localhost:3001/api/doctorVisits`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -26,13 +26,40 @@ const DoctorVisitList = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  // return (
+  //   <div className="doctor-visits">
+  //     {doctorVisits.length > 0 ? (
+  //       <ul>
+  //         {doctorVisits.map((visit) => (
+  //           <li key={visit.id}>
+  //             {/* Render doctor visit details */}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     ) : (
+  //       <p>No doctor visits found.</p>
+  //     )}
+  //   </div>
+  // );
+
   return (
     <div className="doctor-visits">
       {doctorVisits.length > 0 ? (
         <ul>
           {doctorVisits.map((visit) => (
-            <li key={visit.id}>
-              {/* Render doctor visit details */}
+            <li key={visit._id}>
+              <div>
+                <strong>Date:</strong> {new Date(visit.date).toLocaleDateString()}
+              </div>
+              <div>
+                <strong>Doctor:</strong> {visit.doctorName}
+              </div>
+              <div>
+                <strong>Reason:</strong> {visit.reason}
+              </div>
+              <div>
+                <strong>Notes:</strong> {visit.notes}
+              </div>
             </li>
           ))}
         </ul>

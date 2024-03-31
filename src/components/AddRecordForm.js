@@ -73,7 +73,6 @@
 
 // export default AddRecordForm;
 
-
 import React, { useState } from 'react';
 import MedicationForm from './MedicationForm';
 import DoctorVisitForm from './DoctorVisitForm';
@@ -91,11 +90,12 @@ const AddRecordForm = () => {
   // console.log('http://localhost:3001', JSON.stringify(medicationData));
 
   const handleMedicationSave = (medicationData) => {
-    // Define the API endpoint
-    const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
+    //const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
   
-    console.log('Sending medication data to:', `${API_URL}/api/medications`, 'Data:', JSON.stringify(medicationData));
-    console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+    const API_URL = 'http://localhost:3001'
+
+    // console.log('Sending medication data to:', `${API_URL}/api/medications`, 'Data:', JSON.stringify(medicationData));
+    // console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
   
     // Make a POST request to your API endpoint
     fetch(`${API_URL}/api/medications`, {
@@ -123,9 +123,10 @@ const AddRecordForm = () => {
   };
   
 
-  // ... Similarly, you would have handlers for saving doctor visits, lab results, etc.
   const handleDoctorVisitSave = (doctorVisitData) => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/doctorVisits`, {
+    const API_URL = 'http://localhost:3001'
+
+    fetch(`${API_URL}/api/doctorVisits`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -143,7 +144,8 @@ const AddRecordForm = () => {
   };
 
   const handleLabResultSave = (labResultData) => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/labResults`, {
+    const API_URL = 'http://localhost:3001'
+    fetch(`${API_URL}/api/labResults`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -160,7 +162,6 @@ const AddRecordForm = () => {
     });
   };
   
-
   const renderForm = () => {
     switch (recordType) {
       case 'medications':
@@ -172,7 +173,7 @@ const AddRecordForm = () => {
         return <LabResultForm onSaveLabResult={handleLabResultSave} />;
         // break;
       default:
-        return null; // or some default content
+        return null; 
     }
   };
 

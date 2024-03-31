@@ -10,6 +10,8 @@ import AddRecordForm from './components/AddRecordForm'; // Component you'll need
 import UserProfile from './components/UserProfile'; // Component you'll need to create
 // import Logout from './components/Logout'; 
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <Router>

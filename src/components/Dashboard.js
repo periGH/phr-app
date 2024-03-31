@@ -18,12 +18,7 @@ import DoctorVisitList from './DoctorVisitList';
 
 const Dashboard = () => {
     return (
-      <div className="dashboard">
-        <section className="appointments-section">
-          <h2>Past Appointments</h2>
-          <AppointmentList />
-        </section>
-        
+      <div className="dashboard">    
         <section className="medication-schedule-section">
           <h2>Medication List</h2>
           <MedicationList />
