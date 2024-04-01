@@ -74,25 +74,44 @@
 // export default AddRecordForm;
 
 import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import MedicationForm from './MedicationForm';
 import DoctorVisitForm from './DoctorVisitForm';
 import LabResultForm from './LabResultForm';
+import './AddRecordForm.css';
+
 
 const AddRecordForm = () => {
   const [recordType, setRecordType] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleRecordTypeChange = (e) => {
     setRecordType(e.target.value);
+    setShowModal(true);
   };
 
-  // ... Any other handlers for different form types
+  const handleClose = () => {
+    setShowModal(false);
+    setRecordType('');
+  };
 
-  // console.log('http://localhost:3001', JSON.stringify(medicationData));
+  // const renderForm = () => {
+  //   switch (recordType) {
+  //     case 'medications':
+  //       return <MedicationForm onSaveMedication={handleMedicationSave} />;
+  //     case 'doctorVisits':
+  //       return <DoctorVisitForm onSaveDoctorVisit={handleDoctorVisitSave} />;
+  //     case 'labResults':
+  //       return <LabResultForm onSaveLabResult={handleLabResultSave} />;
+  //     default:
+  //       return null; 
+  //   }
+  // };
 
   const handleMedicationSave = (medicationData) => {
-    //const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
+    const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
   
-    const API_URL = 'http://localhost:3001'
+   // const API_URL = 'http://localhost:3001'
 
     // console.log('Sending medication data to:', `${API_URL}/api/medications`, 'Data:', JSON.stringify(medicationData));
     // console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
@@ -125,6 +144,7 @@ const AddRecordForm = () => {
 
   const handleDoctorVisitSave = (doctorVisitData) => {
     const API_URL = 'http://localhost:3001'
+    // const API_URL = process.env.REACT_APP_API_URL; //production
 
     fetch(`${API_URL}/api/doctorVisits`, {
       method: 'POST',
@@ -144,6 +164,7 @@ const AddRecordForm = () => {
   };
 
   const handleLabResultSave = (labResultData) => {
+     // const API_URL = process.env.REACT_APP_API_URL; //production
     const API_URL = 'http://localhost:3001'
     fetch(`${API_URL}/api/labResults`, {
       method: 'POST',
@@ -168,17 +189,15 @@ const AddRecordForm = () => {
         return <MedicationForm onSaveMedication={handleMedicationSave} />;
       case 'doctorVisits':
         return <DoctorVisitForm onSaveDoctorVisit={handleDoctorVisitSave} />;
-        // break;
       case 'labResults':
         return <LabResultForm onSaveLabResult={handleLabResultSave} />;
-        // break;
       default:
-        return null; 
+        return null; // Or some default content
     }
   };
 
   return (
-    <div>
+    <>
       <form className="add-record-form" onSubmit={(e) => e.preventDefault()}>
         <select value={recordType} onChange={handleRecordTypeChange}>
           <option value="">Select Record Type</option>
@@ -188,63 +207,22 @@ const AddRecordForm = () => {
           {/* More options as necessary */}
         </select>
       </form>
-      {renderForm()}
-    </div>
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Record</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {renderForm()}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
+
 export default AddRecordForm;
-
-
-////////////////////////
-// import React, { useState } from 'react';
-// import MedicationForm from './MedicationForm';
-
-// const AddRecordForm = () => {
-//   const [recordType, setRecordType] = useState('');
-
-//   const handleRecordTypeChange = (e) => {
-//     setRecordType(e.target.value);
-//   };
-
-//   const handleMedicationSave = (medicationData) => {
-//     // Logic to send medicationData to the backend
-//   };
-
-//   const renderForm = () => {
-//     switch (recordType) {
-//       case 'medications':
-//         return <MedicationForm onSaveMedication={handleMedicationSave} />;
-//       case 'doctorVisits':
-//         // return <DoctorVisitForm onSaveDoctorVisit={handleDoctorVisitSave} />;
-//         break;
-//       case 'labResults':
-//         // return <LabResultForm onSaveLabResult={handleLabResultSave} />;
-//         break;
-//       default:
-//         return null; // or some default content
-//     }
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Handle the form submission based on the record type selected
-//   };
-
-
-//   return (
-//     <form className="add-record-form" onSubmit={handleSubmit}>
-//       <select value={recordType} onChange={handleRecordTypeChange}>
-//         <option value="">Select Record Type</option>
-//         <option value="medications">Medications</option>
-//         <option value="doctorVisits">Doctor Visits</option>
-//         <option value="labResults">Lab Results</option>
-//         {/* More options as necessary */}
-//       </select>
-//       {/* Conditional form fields based on recordType */}
-//       <button type="submit">Add Record</button>
-//     </form>
-//   );
-// };
-
-// export default AddRecordForm;

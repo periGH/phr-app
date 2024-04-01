@@ -1,0 +1,42 @@
+/* AddRecordForm.css */
+
+.add-record-form {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center children horizontally */
+    margin-bottom: 1rem; /* Add some space below the form */
+  }
+
+.add-record-form select {
+    width: 50%; /* Make select box full width */
+    padding: 0.75rem 1rem; /* Add some padding inside the select box */
+
+     /* Add some space below the select box */
+     /* margin-bottom: 1rem; */
+
+    border-radius: 5px; /* Optional: add rounded corners */
+    border: 1px solid #ddd; /* Optional: add a border */
+    background-color: #f8f8f8;;
+    font-size: 1.1rem; 
+    color: #333;  
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Center the select box */
+    /* margin: 0 auto; */
+    appearance: none; /* Remove default styles, particularly for iOS */
+    cursor: pointer; /* Change cursor to indicate it's selectable */
+    
+  }
+
+
+/* Styling for when the user hovers over the dropdown */
+.add-record-form select:hover {
+    border-color: #bbb; /* Darker border on hover for interaction feedback */
+  }
+  
+  /* Styling for when the dropdown is focused */
+  .add-record-form select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* A blue border color for a clear focus indication */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Matching blue glow */
+  }
+
