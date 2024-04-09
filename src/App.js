@@ -10,6 +10,8 @@ import AddRecordForm from './components/AddRecordForm'; // Component you'll need
 import UserProfile from './components/UserProfile'; // Component you'll need to create
 // import Logout from './components/Logout'; 
 
+import SignUpForm from './components/SignUpForm';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -18,8 +20,12 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/signup" element={<SignUpForm />} />
+
         {/* <Route path="/" element={<Home />} exact /> */}
         {/* Define other routes here */}
+
+
         <Route path="/records" element={<HealthRecords />} />
         <Route path="/add" element={<AddRecordForm />} />
         <Route path="/profile" element={<UserProfile />} />

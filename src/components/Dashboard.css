@@ -1,23 +1,65 @@
 
-/* Dashboard.css */
-/* .dashboard {
-    margin-top: 20px;
-    background-color: #f3f3f3;;
-  } */
-
-  /* Dashboard.css */
 .dashboard {
-    margin-top: 20px; /* Adjust the value as needed */
+  text-align: center;
+  padding-top: 5vh;
+  background-image: url('/record_img.png'); 
+  background-size: 65% auto; 
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 95vh; /* Take the remaining height of the viewport, adjust as necessary */
+}
+
+.dashboard-button {
+  margin: 0.5rem; /* Space between buttons */
+  padding: 0.75rem 1.5rem; /* Padding inside buttons */
+  font-size: 1.2rem; /* Larger font size for buttons */
+  border: none; /* No border */
+  border-radius: 0.5rem; /* Rounded corners */
+  cursor: pointer; /* Clickable cursor type */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+}
+
+.sign-up-button {
+  margin-right: 10px; 
+}
+
+.login-button {
+  margin-left: 10px; 
+}
+
+.dashboard h1 {
+  margin-bottom: 0.5em; /* Reduce space between h1 anda the paragraph */
+  font-size: 2.5em; /* Increase the font size */
+}
+
+.dashboard p {
+  margin-bottom: 2em; /* Increase space between paragraph and buttons */
+}
+
+.dashboard-button:hover {
+  background-color: #0056b3; /* Slightly darker shade on hover */
+}
+
+.dashboard-button.login {
+  background-color: #28a745; /* Different color for login */
+}
+
+.dashboard-button.signup {
+  background-color: #17a2b8; /* Different color for sign up */
+}
+
+
+/* Ensure the buttons are not too wide on smaller screens */
+@media (max-width: 600px) {
+  .dashboard-button {
+    display: block; /* Stack the buttons */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in the width calculation */
   }
-  
-  .dashboard > section {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9; /* Light grey background for each section */
-    border-radius: 8px; /* Rounded corners for aesthetics */
-  }
-  
-  .dashboard h2 {
-    color: #333; /* Dark grey color for headings */
-  }
-  
+}
