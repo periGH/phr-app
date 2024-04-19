@@ -21,7 +21,6 @@ const MedicationForm = ({ onSaveMedication }) => {
       name: '',
       dosage: '',
       frequency: '',
-      // Reset other fields
     });
   };
 

@@ -1,78 +1,3 @@
-// // AddRecordForm.js
-// import React, { useState } from 'react';
-
-// const AddRecordForm = () => {
-//   const [record, setRecord] = useState({
-//     // Initialize state with the structure of the health record you expect
-//     // For example:
-//     // date: '',
-//     // description: '',
-//     // doctor: ''
-//     category: 'labResult', // default category
-//     description: '',
-//     date: '',
-//     doctor: ''
-//     // Add more fields as needed
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setRecord({ ...record, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Here you would typically handle the form submission, send the record to the server
-//     // possibly sending the new record to your backend via an API
-//     // Example: axios.post('/api/records', record)
-//     console.log(record);
-//   };
-
-// //   return (
-// //     <form className="add-record-form" onSubmit={handleSubmit}>
-// //       {/* Render input fields here, e.g.: */}
-// //       <input
-// //         type="text"
-// //         name="description"
-// //         value={record.description}
-// //         onChange={handleChange}
-// //         placeholder="Description"
-// //       />
-// //       {/* Include other fields similarly and a submit button */}
-// //       <button type="submit">Add Record</button>
-// //     </form>
-// //   );
-// // };
-
-// return (
-//   <form className="add-record-form" onSubmit={handleSubmit}>
-//     <select name="category" value={record.category} onChange={handleChange}>
-//       <option value="labResult">Lab Result</option>
-//       <option value="medication">Medication</option>
-//       <option value="doctorVisit">Doctor Visit</option>
-//     </select>
-//     {/* Add more inputs here based on the category */}
-//     <input
-//       type="text"
-//       name="description"
-//       value={record.description}
-//       onChange={handleChange}
-//       placeholder="Description"
-//     />
-//     <input
-//       type="date"
-//       name="date"
-//       value={record.date}
-//       onChange={handleChange}
-//     />
-//     {/* ... */}
-//     <button type="submit">Add Record</button>
-//   </form>
-// );
-// };
-
-// export default AddRecordForm;
-
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import MedicationForm from './MedicationForm';
@@ -95,28 +20,16 @@ const AddRecordForm = () => {
     setRecordType('');
   };
 
-  // const renderForm = () => {
-  //   switch (recordType) {
-  //     case 'medications':
-  //       return <MedicationForm onSaveMedication={handleMedicationSave} />;
-  //     case 'doctorVisits':
-  //       return <DoctorVisitForm onSaveDoctorVisit={handleDoctorVisitSave} />;
-  //     case 'labResults':
-  //       return <LabResultForm onSaveLabResult={handleLabResultSave} />;
-  //     default:
-  //       return null; 
-  //   }
-  // };
 
   const handleMedicationSave = (medicationData) => {
-    const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
+    //const API_URL = process.env.REACT_APP_API_URL; // e.g., 'http://localhost:3001'
   
-   // const API_URL = 'http://localhost:3001'
+    const API_URL = 'http://localhost:3001'
 
     // console.log('Sending medication data to:', `${API_URL}/api/medications`, 'Data:', JSON.stringify(medicationData));
     // console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
   
-    // Make a POST request to your API endpoint
+    // Make a POST request to API endpoint
     fetch(`${API_URL}/api/medications`, {
       method: 'POST',
       headers: {
@@ -132,12 +45,9 @@ const AddRecordForm = () => {
     })
     .then(data => {
       console.log('Success:', data);
-      // Handle successful response
-      // For example, you may want to clear the form or update a list of medications.
     })
     .catch((error) => {
       console.error('Error:', error);
-      // Handle errors here, such as displaying a message to the user.
     });
   };
   
@@ -156,7 +66,6 @@ const AddRecordForm = () => {
     .then(response => response.json())
     .then(data => {
       console.log('Doctor visit added:', data);
-      // Update UI accordingly
     })
     .catch((error) => {
       console.error('Error adding doctor visit:', error);
@@ -176,7 +85,6 @@ const AddRecordForm = () => {
     .then(response => response.json())
     .then(data => {
       console.log('Lab result added:', data);
-      // Update UI to reflect the new lab result
     })
     .catch((error) => {
       console.error('Error adding lab result:', error);
@@ -192,7 +100,7 @@ const AddRecordForm = () => {
       case 'labResults':
         return <LabResultForm onSaveLabResult={handleLabResultSave} />;
       default:
-        return null; // Or some default content
+        return null; 
     }
   };
 
@@ -204,7 +112,6 @@ const AddRecordForm = () => {
           <option value="medications">Medications</option>
           <option value="doctorVisits">Doctor Visits</option>
           <option value="labResults">Lab Results</option>
-          {/* More options as necessary */}
         </select>
       </form>
       <Modal show={showModal} onHide={handleClose}>

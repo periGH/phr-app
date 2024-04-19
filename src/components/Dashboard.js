@@ -11,117 +11,39 @@ import { useNavigate } from 'react-router-dom';
 import LoginPage from './LoginPage';
 
 
-// const Dashboard = () => (
-//     <div className="dashboard">
-//       <AppointmentList />
-//       <LabResults />
-//       <MedicationList />
-//     </div>
-//   );
-
-// export default Dashboard;
-
-// const Dashboard = () => {
-//     return (
-//       <div className="dashboard">    
-//         <section className="medication-schedule-section">
-//           <h2>Medication List</h2>
-//           <MedicationList />
-//         </section>
-
-//         <section className="doctor-visit-section">
-//           <h2>Doctor Visits</h2>
-//           <DoctorVisitList />
-//         </section>
-
-//         <section className="lab-results-section">
-//           <h2>Recent Lab Results</h2>
-//           <LabResults />
-//         </section>
-
-//       </div>
-//     );
-//   };
-  
-//   export default Dashboard;
-
-
-// const SignUpPage = () => {
-//   const handleSignUp = (credentials) => {
-//     fetch('http://localhost:3001/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(credentials),
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       // Handle the response data
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       // Handle any errors
-//       console.error('Error:', error);
-//       //navigate('/login'); // Redirect user to login page after successful signup
-//     });
-//   };
-
-//   return (
-//     <div>
-//       <h1>Sign Up</h1>
-//       <SignUpForm onSignUp={handleSignUp} />
-//     </div>
-//   );
-// };
-
-// export default SignUpPage;
-
-
-// const Dashboard = () => {
-//   const handleSignUp = (credentials) => {
-//     fetch('http://localhost:3001/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(credentials),
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data);
-//       // might want to navigate the user to another page or show a success message
-//     })
-//     .catch((error) => {
-//       console.error('Error:', error);
-//       //  show an error message to the user
-//     });
-//   };
-
-//   // Include a similar handler for login 
-
-//   return (
-//     <div>
-//       <h1>Welcome to the Health Records Platform</h1>
-//       <p>Manage and keep track of your health records easily and securely.</p>
-//       <SignUpForm onSignUp={handleSignUp} />
-//       {/* Similarly, you can include a LoginForm here or a button to toggle to a LoginForm */}
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
-
-
-
 const Dashboard = () => {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate(); // Hook for navigation
+  const [signupConfirmation, setSignupConfirmation] = useState('');
+
+  const token = localStorage.getItem('token');
+  const isLoggedIn = token;
+
+  // const handleSignUp = (credentials) => {
+  //   fetch('http://localhost:3001/api/users/signup', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(credentials),
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     setSignupConfirmation(`Thanks for signing up, ${data.user.username}!`);
+  //     //setShowSignUp(false); // Hide the sign-up form upon successful sign-up
+  //     // navigate to login page after successful signup
+  //     navigate('/login'); // Assuming you have a route set up for '/login'
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error:', error);
+  //     setSignupConfirmation('An error occurred during sign up.');
+  //   });
+  // };
 
   const handleSignUp = (credentials) => {
-    fetch('http://localhost:3001/signup', {
+    fetch('http://localhost:3001/api/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -131,80 +53,115 @@ const Dashboard = () => {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      setShowSignUp(false); // Hide the sign-up form upon successful sign-up
-      // Optionally, navigate to login page or dashboard
+      setSignupConfirmation(`Thanks for signing up, ${data.user.username}!`);
+      
+      // Show the confirmation message for a short time before redirecting
+      setTimeout(() => {
+        navigate('/login'); // Navigate to login after a delay
+      }, 3000); // Delay in milliseconds (e.g., 3000ms = 3 seconds)
     })
     .catch((error) => {
       console.error('Error:', error);
+      setSignupConfirmation('An error occurred during sign up.');
     });
   };
+  
+
+
+  // const handleLogin = (credentials) => {
+  //   fetch('http://localhost:3001/api/users/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(credentials),
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     localStorage.setItem('token', data.token); // Save the token to localStorage
+  //     localStorage.setItem('user', JSON.stringify(data.user)); // Save the user data for later use
+  //     navigate('/profile'); // Redirect user to profile page
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // };
 
   const handleLogin = (credentials) => {
-    fetch('http://localhost:3001/login', {
+    fetch('http://localhost:3001/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(credentials),
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+      return response.json();
+    })
     .then(data => {
-      console.log(data);
-      navigate('/dashboard'); // Redirect user to dashboard after successful login
+      console.log('Server response:', data);
+      // data.user contains the user data and data.token contains the JWT token
+      localStorage.setItem('token', data.token); // Save the token to localStorage
+      localStorage.setItem('user', JSON.stringify(data.user)); // Save the user data for later use
+      navigate('/profile'); // Redirect user to profile page
     })
     .catch(error => {
       console.error('Error:', error);
     });
   };
 
-//   return (
-//     <div>
-//       <h1>Welcome to the Health Records Platform</h1>
-//       <p>Manage and keep track of your health records easily and securely.</p>
-//       <button className="dashboard-button" onClick={() => setShowSignUp(true)}>Sign Up</button>
-//       <button className="dashboard-button" onClick={() => setShowLogin(true)}>Login</button>
-//       {!showSignUp && !showLogin && (
-//         <>
-//           <button onClick={() => setShowSignUp(true)}>Sign Up</button>
-//           <button onClick={() => setShowLogin(true)}>Login</button>
-//         </>
-//       )}
+// return (
+//   <div className="dashboard">
+//     <h1>Welcome to the Health Records Platform</h1>
+//     <p>Manage and keep track of your health records easily and securely.</p>
 
-//       {showSignUp && (
-//         <>
-//           <h1>Sign Up</h1>
-//           <SignUpForm onSignUp={handleSignUp} />
-//           <button onClick={() => setShowSignUp(false)}>Back</button>
-//         </>
-//       )}
+//     {/* {signupConfirmation && <div className="signup-confirmation">{signupConfirmation}</div>} */}
+//     {signupConfirmation && <p className="signup-confirmation">{signupConfirmation}</p>}
 
-//       {showLogin && (
-//         <>
-//           <h1>Login</h1>
-//           <LoginPage onLogin={handleLogin} />
-//           <button onClick={() => setShowLogin(false)}>Back</button>
-//         </>
-//       )}
-//     </div>
-//   );
-// };
+//     {!showSignUp && !showLogin && (
+//       <>
+//         <button className="dashboard-button sign-up-button" onClick={() => setShowSignUp(true)}>Sign Up</button>
+//         <button className="dashboard-button login-button" onClick={() => setShowLogin(true)}>Login</button>
+//       </>
+//     )}
 
-// export default Dashboard;
+//     {showSignUp && (
+//       <>
+//         <SignUpForm onSignUp={handleSignUp} />
+//         <button onClick={() => setShowSignUp(false)}>Back</button>
+//       </>
+//     )}
 
-
+//     {showLogin && (
+//       <>
+//         <LoginPage onLogin={handleLogin} />
+//         <button onClick={() => setShowLogin(false)}>Back</button>
+//       </>
+//     )}
+//   </div>
+// );
 
 return (
   <div className="dashboard">
     <h1>Welcome to the Health Records Platform</h1>
-    <p>Manage and keep track of your health records easily and securely.</p>
+    <p className="message-style">Manage and keep track of your health records easily and securely.</p>
 
-    {!showSignUp && !showLogin && (
+    {/* Display a confirmation message after signup */}
+    {signupConfirmation && <p className="signup-confirmation">{signupConfirmation}</p>}
+
+    {/* If the user is not logged in, show the signup and login options */}
+    {!isLoggedIn && (
       <>
         <button className="dashboard-button sign-up-button" onClick={() => setShowSignUp(true)}>Sign Up</button>
         <button className="dashboard-button login-button" onClick={() => setShowLogin(true)}>Login</button>
       </>
     )}
 
+    {/* If the user clicked 'Sign Up', show the signup form */}
     {showSignUp && (
       <>
         <SignUpForm onSignUp={handleSignUp} />
@@ -212,14 +169,26 @@ return (
       </>
     )}
 
+    {/* If the user clicked 'Login', show the login form */}
     {showLogin && (
       <>
         <LoginPage onLogin={handleLogin} />
         <button onClick={() => setShowLogin(false)}>Back</button>
       </>
     )}
+
+    {/* If the user is logged in, you might show a welcome message or dashboard summary */}
+    {isLoggedIn && (
+      <div>
+        <h2>Welcome back to your Health Dashboard!</h2>
+        {/* Display user-specific content or redirect to user dashboard */}
+      </div>
+    )}
   </div>
 );
+
+
+
 };
 
 export default Dashboard;

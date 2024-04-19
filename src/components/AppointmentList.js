@@ -1,13 +1,3 @@
-// import React from 'react';
-
-// const AppointmentList = () => (
-//     <div className="appointments">
-//       {/* List appointments here */}
-//     </div>
-//   );
-
-// export default AppointmentList;
-
 import React, { useState, useEffect } from 'react';
 
 const AppointmentList = () => {
@@ -17,7 +7,7 @@ const AppointmentList = () => {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/api/appointments`) 
-    // fetch(`${process.env.REACT_APP_API_URL}/appointments`) // Use your actual API endpoint
+    // fetch(`${process.env.REACT_APP_API_URL}/appointments`) 
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

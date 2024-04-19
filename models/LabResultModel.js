@@ -5,7 +5,6 @@ const labResultSchema = new mongoose.Schema({
   testType: String,
   result: String,
   notes: String,
-  // Add other fields as needed
 });
 
 const LabResult = mongoose.model('LabResult', labResultSchema);

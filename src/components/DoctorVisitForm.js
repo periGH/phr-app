@@ -16,7 +16,6 @@ const DoctorVisitForm = ({ onSaveDoctorVisit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSaveDoctorVisit(doctorVisit);
-    // Clear the form or navigate away
   };
 
   return (

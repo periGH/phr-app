@@ -66,3 +66,7 @@ MONGO_URI=mongodb+srv://yourUser:yourPassword@yourClusterURL/yourDBname
 - Server Configuration: Ensure your backend server uses mongoose or a similar MongoDB driver to connect to the database using the MONGO_URI environment variable. You may need to install necessary packages (e.g., npm install mongoose dotenv).
 
 - Start Your Server: Run your server (e.g., with npm run server). If everything is configured correctly, you should see a "Connected to MongoDB" message in your server logs, indicating a successful connection.
+
+#### Generating a Secure JWT Secret: ####
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+

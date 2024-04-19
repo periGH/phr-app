@@ -1,31 +1,40 @@
 // NavigationBar.js
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink, useNavigate } from 'react-router-dom'; 
 import './NavigationBar.css';
 
+const NavigationBar = () => {
+  const navigate = useNavigate();
+  const [showLoggedOutMessage, setShowLoggedOutMessage] = useState(false);
 
-// const NavigationBar = () => (
-//   <nav className="navigation">
-//     <ul>
-//       <li><Link to="/">Home</Link></li>
-//       <li><Link to="/records">Health Records</Link></li>
-//       <li><Link to="/add">Add Record</Link></li>
-//       <li><Link to="/profile">Profile</Link></li>
-//       <li><Link to="/logout">Log Out</Link></li>
-//     </ul>
-//   </nav>
-// );
+  const handleLogout = (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    localStorage.clear();
+    setShowLoggedOutMessage(true); // Set the flag to show the logged out message
+    navigate('/login');
+  };
+  
 
-const NavigationBar = () => (
-  <nav className="navigation">
-    <ul>
-      <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
-      <li><NavLink to="/records" activeClassName="active">Health Records</NavLink></li>
-      <li><NavLink to="/add" activeClassName="active">Add Record</NavLink></li>
-      <li><NavLink to="/profile" activeClassName="active">Profile</NavLink></li>
-      <li><NavLink to="/logout" activeClassName="active">Log Out</NavLink></li>
-    </ul>
-  </nav>
+return (
+  <>
+    <nav className="navigation">
+      <ul>
+        <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
+        <li><NavLink to="/records" activeClassName="active">Health Records</NavLink></li>
+        <li><NavLink to="/add" activeClassName="active">Add Record</NavLink></li>
+        <li><NavLink to="/profile" activeClassName="active">Profile</NavLink></li>
+        <li>
+          <a href="/logout" onClick={handleLogout}>Log Out</a>
+        </li>
+      </ul>
+    </nav>
+    {showLoggedOutMessage && (
+      <div className="logout-message">You have been logged out.</div>
+    )}
+  </>
 );
+
+};
+
 export default NavigationBar;

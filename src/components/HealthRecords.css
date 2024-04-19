@@ -1,0 +1,88 @@
+/* HealthRecords.css */
+.health-records-container {
+    padding: 2rem;
+    max-width: 1200px; /* Maximum width of the content */
+    margin: 2rem auto; /* Center the content and provide space on top and bottom */
+    background-color: #fff; 
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    text-align: center; 
+  }
+  
+  .react-bootstrap-tabs {
+    margin-bottom: 1rem; 
+  }
+  
+  /* Tab content styling */
+  .tab-content {
+    padding: 1rem;
+    border: none; /* Remove any default border */
+    border-top: 4px solid #0056b3; /* Accent color on the top edge */
+  }
+  
+  /* Style for individual tabs */
+  .nav-item .nav-link {
+    margin: 0 5px; /* Space between tabs */
+    padding: 0.5rem 1rem; /* Padding within the tab */
+    border: none; /* Remove any default border */
+    border-radius: 4px; /* Slight rounding of corners */
+    background-color: #e3e6e8; /* Light grey background for tabs */
+    color: #333; /* Dark grey color for the tab text */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Style for the active tab */
+  .nav-item .nav-link.active {
+    background-color: #0056b3; /* Active tab has a different background color */
+    color: #fff; /* White text for active tab */
+  }
+  
+  /* Hover effect for tabs */
+  .nav-item .nav-link:hover {
+    background-color: #007bff; /* Lighten the background on hover */
+    color: #fff; /* White text on hover */
+  }
+  
+  /* Style for the list items in each tab panel */
+.tab-content ul {
+    list-style-type: none; /* Remove default list bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .tab-content li {
+    background-color: #f8f9fa; /* Light grey background for each list item */
+    margin-bottom: 1rem; /* Space between list items */
+    padding: 1rem; /* Padding inside each list item */
+    border-radius: 8px; /* Rounded corners for the list items */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+  
+  .tab-content li:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+  }
+  
+  /* Style for the details within each list item */
+  .record-details {
+    text-align: left; /* Align the text to the left */
+    line-height: 1.6; /* Increase line-height for readability */
+  }
+  
+  .record-details dt {
+    display: inline; /* Display term inline */
+    font-weight: bold; /* Make the term bold */
+  }
+  
+  .record-details dd {
+    display: inline; /* Display details inline */
+    margin-left: 0.5rem; /* Space after term */
+    margin-right: 1.5rem; /* Space before next term */
+  }
+  
+  /* Removes default styling for definition lists */
+  .record-details dt, 
+  .record-details dd {
+    margin: 0;
+    padding: 0;
+  }
+  

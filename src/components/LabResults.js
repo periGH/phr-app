@@ -25,14 +25,25 @@ const LabResults = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+
   return (
     <div className="lab-results">
       {labResults.length > 0 ? (
         <ul>
           {labResults.map((result) => (
             <li key={result._id}>
-              {/* Render lab result details */}
-              Date: {new Date(result.date).toLocaleDateString()}, Test Type: {result.testType}, Result: {result.result}, Notes: {result.notes}
+              <div>
+                <strong>Date:</strong> {new Date(result.date).toLocaleDateString()}
+              </div>
+              <div>
+                <strong>Test Type:</strong> {result.testType}
+              </div>
+              <div>
+                <strong>Result:</strong> {result.result}
+              </div>
+              <div>
+                <strong>Notes:</strong> {result.notes}
+              </div>
             </li>
           ))}
         </ul>

@@ -26,22 +26,8 @@ const DoctorVisitList = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  // return (
-  //   <div className="doctor-visits">
-  //     {doctorVisits.length > 0 ? (
-  //       <ul>
-  //         {doctorVisits.map((visit) => (
-  //           <li key={visit.id}>
-  //             {/* Render doctor visit details */}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     ) : (
-  //       <p>No doctor visits found.</p>
-  //     )}
-  //   </div>
-  // );
 
+  
   return (
     <div className="doctor-visits">
       {doctorVisits.length > 0 ? (

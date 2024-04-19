@@ -16,7 +16,6 @@ const LabResultForm = ({ onSaveLabResult }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSaveLabResult(labResult);
-    // Clear form or provide feedback
   };
 
   return (

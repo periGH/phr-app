@@ -15,8 +15,8 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Implement your fetch call to the login API here
-    fetch('http://localhost:3001/api/login', {
+    // Implement fetch call to the login API here
+    fetch('http://localhost:3001/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,9 @@ const LoginPage = () => {
     .then(data => {
       console.log(data);
       // Handle login success, e.g., saving the token, redirecting to another page
-      navigate('/dashboard'); // Redirect user to dashboard after successful login
+      localStorage.setItem('token', data.token); // Save the token to localStorage
+      localStorage.setItem('user', JSON.stringify(data.user)); 
+      navigate('/profile'); // Redirect user to dashboard after successful login
     })
     .catch(error => {
       console.error('Error:', error);

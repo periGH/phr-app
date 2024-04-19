@@ -1,13 +1,3 @@
-// // MedicationList.js
-// import React from 'react';
-
-// const MedicationList = () => (
-//     <div className="medication-list">
-//       {/* List medications here */}
-//     </div>
-//   );
-
-// export default MedicationList;
 
 import React, { useState, useEffect } from 'react';
 
@@ -37,14 +27,22 @@ const MedicationList = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+
   return (
     <div className="medication-list">
       {medications.length > 0 ? (
         <ul>
           {medications.map((medication) => (
             <li key={medication._id}>
-              {/* Render medication details here */}
-              {medication.name} - {medication.dosage} - {medication.frequency}
+              <div>
+                <strong>Name:</strong> {medication.name}
+              </div>
+              <div>
+                <strong>Dosage:</strong> {medication.dosage}
+              </div>
+              <div>
+                <strong>Frequency:</strong> {medication.frequency}
+              </div>
             </li>
           ))}
         </ul>
@@ -53,6 +51,11 @@ const MedicationList = () => {
       )}
     </div>
   );
+  
+
+  
+
+
 };
 
 export default MedicationList;

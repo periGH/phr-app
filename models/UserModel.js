@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  // Add other fields as needed,
 });
 
 // Create the model

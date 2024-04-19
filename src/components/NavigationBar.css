@@ -1,6 +1,6 @@
 /* NavigationBar.css */
- 
-/* NavigationBar.css */
+
+
 .navigation {
   background-color: #333;
   /* background-color: #007bff; */
@@ -36,60 +36,14 @@
 }
 
 
+.logout-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da; /* Light red background for visibility */
+  color: #721c24; /* Dark red text color for contrast */
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  width: 100%;
+}
 
-  /*****************************/
-
-/* .navigation {
-    background-color: #333;
-    color: white;
-    padding: 0.5rem 1rem;
-  }
-  
-  .navigation ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navigation ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .navigation ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }  */
-
-  /*****************************/
-  /* Add :hover states, active link styles, etc. */
-  
-  /* NavigationBar.css */
-/* .navigation {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  .navigation ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .navigation ul li {
-    float: left;
-  }
-  
-  .navigation ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navigation ul li a:hover {
-    background-color: #111;
-  } */
-  
