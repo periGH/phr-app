@@ -1,5 +1,5 @@
 # Use an official Node runtime as a parent image
-FROM node:14
+FROM node:16
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -11,7 +11,7 @@ COPY . .
 RUN npm install
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 3001
 
 # Define environment variable
 ENV NODE_ENV production
