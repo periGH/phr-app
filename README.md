@@ -70,3 +70,37 @@ MONGO_URI=mongodb+srv://yourUser:yourPassword@yourClusterURL/yourDBname
 #### Generating a Secure JWT Secret: ####
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
+## Deployment
+
+### Deploying on Heroku
+
+This section guides you through deploying the PHR App on Heroku.
+
+#### Prerequisites
+- A Heroku account. Sign up for free at [Heroku](https://signup.heroku.com/).
+- Heroku CLI. Download and install from [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+
+#### Steps to Deploy
+1. **Log in to Heroku CLI**: Open your terminal and log in to your Heroku account using the command:
+
+2. **Create a Heroku App**: Create a new app on Heroku:
+
+3. **Set Environment Variables**: Set up the necessary environment variables on Heroku:
+
+
+4. **Deploy PHR Application**:
+- Initialize a git repository in your project directory if you haven’t done so:
+  ```
+  git init
+  git add .
+  git commit -m "Initial commit"
+  ```
+- Push your code to Heroku:
+  ```
+  git push heroku master
+  ```
+
+5. **Open Your Application**: Once deployed, you can open the application. 
+
+### Author
+- **Perihan Hill**: Main Developer and Designer
