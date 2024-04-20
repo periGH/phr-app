@@ -29,7 +29,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
     "test:react": "react-scripts test",
     "test:all": "npm run test:react && jest",
     "eject": "react-scripts eject",
@@ -59,7 +58,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^24.7.1",
     "nodemon": "^3.1.0",
     "supertest": "^6.3.4"
   }
