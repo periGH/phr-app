@@ -1,18 +1,27 @@
 // NavigationBar.js
 import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
-import { NavLink, useNavigate } from 'react-router-dom'; 
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'; 
 import './NavigationBar.css';
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const location = useLocation(); 
   const [showLoggedOutMessage, setShowLoggedOutMessage] = useState(false);
+
+  useEffect(() => {
+    // Clear the logged out message when navigating away from the login page
+    if (location.pathname !== '/login') {
+      setShowLoggedOutMessage(false);
+    }
+  }, [location.pathname]); 
+
 
   const handleLogout = (event) => {
     event.preventDefault(); // Prevent default link behavior
     localStorage.clear();
     setShowLoggedOutMessage(true); // Set the flag to show the logged out message
-    navigate('/login');
+    navigate('/login', { replace: true });
   };
   
 

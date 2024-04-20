@@ -1,6 +1,0 @@
-[
-{"_id":{"$oid":"6608fa6e2ceda66171775dc3"},"date":{"$date":"2024-03-30T00:00:00Z"},"doctorName":"Doctor White","reason":" Updated Routine Checkup","notes":"Full Physical Exam with Blood Work","__v":0},
-{"_id":{"$oid":"6608fdb32ceda66171775dcb"},"date":{"$date":"2024-03-30T00:00:00Z"},"doctorName":"Doctor Jr White","reason":"Cough and Cold","notes":"Rest, Cold medicine for minimum 3 days","__v":0},
-{"_id":{"$oid":"6608fea42ceda66171775dcd"},"date":{"$date":"2024-03-30T00:00:00Z"},"doctorName":"Doctor Jr White","reason":"Cold Sore","notes":"Topical and oral medications was given.","__v":0},
-{"_id":{"$oid":"6608ff122ceda66171775dcf"},"date":{"$date":"2024-03-20T00:00:00Z"},"doctorName":"Matt Damonn","reason":"High Fever, Cough, difficulty breathin","notes":"GetWell Hospital. Lab work recommended and recheck in a few days.","__v":0}
-]

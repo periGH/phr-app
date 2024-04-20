@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LoginPage.css';
 
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -36,28 +37,54 @@ const LoginPage = () => {
     });
   };
 
-  return (
-    <div>
-      {/* <h1>Login</h1> */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-          placeholder="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+
+//   return (
+//     <div>
+//       {/* <h1>Login</h1> */}
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           name="username"
+//           value={credentials.username}
+//           onChange={handleChange}
+//           placeholder="Username"
+//         />
+//         <input
+//           type="password"
+//           name="password"
+//           value={credentials.password}
+//           onChange={handleChange}
+//           placeholder="Password"
+//         />
+//         <button type="submit">Login</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+return (
+  <div className="login-page-container">
+    <form className="login-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        className="login-input"
+        value={credentials.username}
+        onChange={handleChange}
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        name="password"
+        className="login-input"
+        value={credentials.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
+      <button type="submit" className="login-button">Login</button>
+    </form>
+  </div>
+);
 };
 
 export default LoginPage;

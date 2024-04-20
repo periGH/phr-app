@@ -1,4 +1,0 @@
-[
-    {"_id":{"$oid":"66092b5f75f78ed991abd82b"},"date":{"$date":"2024-03-15T00:00:00Z"},"testType":"Blood test","result":"Normal","notes":"Results are in normal range.","__v":0},
-    {"_id":{"$oid":"66092d5075f78ed991abd82f"},"date":{"$date":"2024-03-19T00:00:00Z"},"testType":"Urine","result":"High Glucose","notes":"Possible Diabetes","__v":0}
-]

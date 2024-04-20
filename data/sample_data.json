@@ -1,0 +1,102 @@
+{
+    "User": 
+    {
+      "username": "John Doe",
+      "email": "john_doe@example.com"
+    },
+
+    "DoctorVisits": [
+      {
+        "date": "2024-04-01T09:00:00Z",
+        "doctorName": "Dr. Emily Stanton",
+        "reason": "Annual Physical Exam",
+        "notes": "Patient is in good health. Recommended vitamin D supplementation."
+      },
+      {
+        "date": "2024-03-15T13:00:00Z",
+        "doctorName": "Dr. Mark Sloan",
+        "reason": "Routine Checkup",
+        "notes": "No issues reported. Blood pressure normal, vaccinations up to date."
+      },
+      {
+        "date": "2024-01-20T11:00:00Z",
+        "doctorName": "Dr. Susan O'Malley",
+        "reason": "Follow-up for knee surgery",
+        "notes": "Healing well. Continue with physical therapy and reduce strenuous activities."
+      },
+      {
+        "date": "2024-02-25T15:30:00Z",
+        "doctorName": "Dr. Traver Brown",
+        "reason": "Consultation for allergies",
+        "notes": "Allergic reactions to pollen confirmed. Prescribed antihistamines and recommended allergy shots."
+      },
+      {
+        "date": "2024-03-22T10:00:00Z",
+        "doctorName": "Dr. Lisa Cuddy",
+        "reason": "Skin rash",
+        "notes": "Diagnosed with eczema. Prescribed topical corticosteroids and recommended use of hypoallergenic soaps."
+      }
+    ],
+
+    "LabResults": [
+      {
+        "date": "2024-04-05T08:00:00Z",
+        "testType": "Complete Blood Count (CBC)",
+        "result": "Normal",
+        "notes": "All parameters within normal range."
+      },
+      {
+        "date": "2024-03-10T14:30:00Z",
+        "testType": "Lipid Panel",
+        "result": "High cholesterol",
+        "notes": "Total cholesterol level is high. Advised dietary adjustments and follow-up testing in 3 months."
+      },
+      {
+        "date": "2024-01-15T09:30:00Z",
+        "testType": "Blood Glucose",
+        "result": "Normal",
+        "notes": "Fasting glucose levels are within the normal range."
+      },
+      {
+        "date": "2024-02-20T11:00:00Z",
+        "testType": "Thyroid Stimulating Hormone (TSH)",
+        "result": "Elevated",
+        "notes": "TSH levels slightly above the normal range. Possible hypothyroidism. Recommend endocrinology consultation."
+      },
+      {
+        "date": "2024-03-25T16:45:00Z",
+        "testType": "Hemoglobin A1C",
+        "result": "Normal",
+        "notes": "No indications of diabetes; maintain current lifestyle."
+      }
+    ],
+    
+    "Medications": [
+      {
+        "name": "Amoxicillin",
+        "dosage": "500 mg",
+        "frequency": "Three times a day"
+      },
+      {
+        "name": "Metformin",
+        "dosage": "1000 mg",
+        "frequency": "Twice a day"
+      },
+      {
+        "name": "Lisinopril",
+        "dosage": "10 mg",
+        "frequency": "Once a day"
+      },
+      {
+        "name": "Atorvastatin",
+        "dosage": "20 mg",
+        "frequency": "Once a day"
+      },
+      {
+        "name": "Albuterol",
+        "dosage": "2 puffs",
+        "frequency": "As needed"
+      }
+    ]
+  }
+  
