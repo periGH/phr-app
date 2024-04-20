@@ -5,7 +5,6 @@ import DoctorVisitForm from './DoctorVisitForm';
 import LabResultForm from './LabResultForm';
 import './AddRecordForm.css';
 
-
 const AddRecordForm = () => {
   const [recordType, setRecordType] = useState('');
   const [showModal, setShowModal] = useState(false);

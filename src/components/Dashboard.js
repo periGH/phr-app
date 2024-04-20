@@ -1,7 +1,7 @@
 //Dashboard 
 import React, { useState }  from 'react';
 import AppointmentList from './AppointmentList'; 
-import LabResults from './LabResults';           // Make sure the path is correct
+import LabResults from './LabResults';           
 import MedicationList from './MedicationList'; 
 import './Dashboard.css'; 
 import DoctorVisitList from './DoctorVisitList';
@@ -20,27 +20,7 @@ const Dashboard = () => {
   const token = localStorage.getItem('token');
   const isLoggedIn = token;
 
-  // const handleSignUp = (credentials) => {
-  //   fetch('http://localhost:3001/api/users/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(credentials),
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data);
-  //     setSignupConfirmation(`Thanks for signing up, ${data.user.username}!`);
-  //     //setShowSignUp(false); // Hide the sign-up form upon successful sign-up
-  //     // navigate to login page after successful signup
-  //     navigate('/login'); // Assuming you have a route set up for '/login'
-  //   })
-  //   .catch((error) => {
-  //     console.error('Error:', error);
-  //     setSignupConfirmation('An error occurred during sign up.');
-  //   });
-  // };
+
 
   const handleSignUp = (credentials) => {
     fetch('http://localhost:3001/api/users/signup', {
@@ -65,28 +45,10 @@ const Dashboard = () => {
       setSignupConfirmation('An error occurred during sign up.');
     });
   };
-  
 
 
-  // const handleLogin = (credentials) => {
-  //   fetch('http://localhost:3001/api/users/login', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(credentials),
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data);
-  //     localStorage.setItem('token', data.token); // Save the token to localStorage
-  //     localStorage.setItem('user', JSON.stringify(data.user)); // Save the user data for later use
-  //     navigate('/profile'); // Redirect user to profile page
-  //   })
-  //   .catch(error => {
-  //     console.error('Error:', error);
-  //   });
-  // };
+
+
 
   const handleLogin = (credentials) => {
     fetch('http://localhost:3001/api/users/login', {
@@ -114,36 +76,6 @@ const Dashboard = () => {
     });
   };
 
-// return (
-//   <div className="dashboard">
-//     <h1>Welcome to the Health Records Platform</h1>
-//     <p>Manage and keep track of your health records easily and securely.</p>
-
-//     {/* {signupConfirmation && <div className="signup-confirmation">{signupConfirmation}</div>} */}
-//     {signupConfirmation && <p className="signup-confirmation">{signupConfirmation}</p>}
-
-//     {!showSignUp && !showLogin && (
-//       <>
-//         <button className="dashboard-button sign-up-button" onClick={() => setShowSignUp(true)}>Sign Up</button>
-//         <button className="dashboard-button login-button" onClick={() => setShowLogin(true)}>Login</button>
-//       </>
-//     )}
-
-//     {showSignUp && (
-//       <>
-//         <SignUpForm onSignUp={handleSignUp} />
-//         <button onClick={() => setShowSignUp(false)}>Back</button>
-//       </>
-//     )}
-
-//     {showLogin && (
-//       <>
-//         <LoginPage onLogin={handleLogin} />
-//         <button onClick={() => setShowLogin(false)}>Back</button>
-//       </>
-//     )}
-//   </div>
-// );
 
 return (
   <div className="dashboard">
@@ -181,7 +113,6 @@ return (
     {isLoggedIn && (
       <div>
         <h2>Welcome back to your Health Dashboard!</h2>
-        {/* Display user-specific content or redirect to user dashboard */}
       </div>
     )}
   </div>

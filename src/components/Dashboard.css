@@ -8,7 +8,6 @@
   background-repeat: no-repeat; 
   height: 95vh; /* Take the remaining height of the viewport, adjust as necessary */
 }
-
 .dashboard-button {
   margin: 0.5rem; /* Space between buttons */
   padding: 0.75rem 1.5rem; /* Padding inside buttons */

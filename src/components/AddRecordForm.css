@@ -2,7 +2,7 @@
 
 .add-record-form {
     display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center children horizontally */
+    justify-content: center; 
     margin-bottom: 1rem; /* Add some space below the form */
   }
 
