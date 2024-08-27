@@ -103,4 +103,4 @@ This section guides you through deploying the PHR App on Heroku.
 5. **Open Your Application**: Once deployed, you can open the application. 
 
 ### Author
-- **Perihan Hill**: Main Developer and Designer
+- **Perihan Hill**: Developer and Designer
