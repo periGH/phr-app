@@ -1,7 +1,7 @@
 # Personal Health Record (PHR) App
 
 ## Introduction
-The Personal Health Record (PHR) App is a web-based application designed to help individuals keep track of their medical records, medications, lab results, and doctor visits in one convenient location. Built with React, Node.js, and MongoDB, this project aims to simplify the management of health information for users.
+The Personal Health Record (PHR) App is a web application designed to help individuals keep track of their medical records, medications, lab results, and doctor visits in one convenient location. Built with React, Node.js, and MongoDB, this project aims to simplify the management of health information for users.
 
 ## Getting Started
 
